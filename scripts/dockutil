@@ -623,7 +623,8 @@ def commitPlist(pl, plist_path, restart_dock):
     os.chmod(plist_string_path, plist_stat.st_mode)
     if restart_dock:
         os.system('/usr/bin/killall -HUP Dock >/dev/null 2>&1')
-
+        os.system('/usr/bin/killall cfprefsd >/dev/null 2>&1')
+        os.system('/usr/bin/killall -HUP Dock >/dev/null 2>&1')
 
 def plistFromPath(plist_path):
     convertPlist(plist_path, 'xml1') 
